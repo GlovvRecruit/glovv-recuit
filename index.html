@@ -31,7 +31,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-N56MMQQH');</script>
 <!-- End Google Tag Manager -->
 
-
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
 
@@ -59,7 +58,6 @@ html,body{
 
 .layout{ display:flex; min-height:100vh; }
 
-/* ── 본문 ── */
 .main{
   flex: 1;
   display: flex;
@@ -72,7 +70,6 @@ html,body{
   padding-top: 56px;
 }
 
-/* ── 이미지 ── */
 .sp-img{
   width: 100%;
   border-radius: 14px;
@@ -80,7 +77,6 @@ html,body{
   margin: 28px 0;
 }
 
-/* ── 헤딩 ── */
 h1.page-title{
   font-size: 52px;
   font-weight: 900;
@@ -90,6 +86,7 @@ h1.page-title{
   margin-bottom: 14px;
   text-align: center;
 }
+
 /* ══════════════════════════════════════
    레이아웃 기준값
    INDENT = 38px (이모지28px + gap10px)
@@ -100,12 +97,14 @@ h2.section-head{
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin: 52px 0 20px;   /* 아래 간격 통일 */
+  margin: 52px 0 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 .emoji-num{
+  display: inline-flex;
+  align-items: center;
   font-size: 28px;
   flex-shrink: 0;
   line-height: 1;
@@ -115,21 +114,19 @@ h3.sub-head{
   font-weight: 800;
   color: var(--text);
   margin: 28px 0 12px;
-  padding-left: 38px;    /* INDENT: ol 숫자와 같은 선 */
+  padding-left: 38px;
 }
 h4.subsub{
   font-size: 17px;
   font-weight: 700;
   color: var(--text);
   margin: 20px 0 8px;
-  padding-left: 72px;    /* h3(38px) + 숫자(24px) + gap(10px) */
+  padding-left: 72px;
 }
-/* h4 바로 아래 불릿 */
 h4.subsub + ul.sp-ul {
   padding-left: 88px;
 }
 
-/* ── 단락 ── */
 p.sp-p{
   font-size: 17px;
   color: var(--text-muted);
@@ -137,11 +134,10 @@ p.sp-p{
   line-height: 1.85;
 }
 
-/* ── 불릿 리스트 ── */
 ul.sp-ul{
   list-style: none;
   margin: 8px 0 16px 0;
-  padding: 0 0 0 38px;   /* INDENT */
+  padding: 0 0 0 38px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -170,12 +166,11 @@ ul.sp-ul li::before{
   margin-top: 11px;
 }
 
-/* ── 번호 리스트 (1. 소제목급) ── */
 ol.sp-ol{
   list-style: none;
   counter-reset: sp-counter;
   margin: 8px 0 16px 0;
-  padding: 0 0 0 38px;   /* INDENT */
+  padding: 0 0 0 38px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -184,7 +179,7 @@ ol.sp-ol > li{
   counter-increment: sp-counter;
   display: flex;
   gap: 10px;
-  font-size: 19px;        /* ← 소제목급 크기 */
+  font-size: 19px;
   color: var(--text);
   line-height: 1.7;
   font-weight: 700;
@@ -198,13 +193,11 @@ ol.sp-ol > li::before{
 }
 .li-body{ flex:1; font-weight:700; min-width:0; }
 
-/* ol 아래 불릿은 더 들여쓰기 + 작게 */
 ol.sp-ol .indent-ul,
 ol.sp-ol ul.sp-ul {
   padding-left: 4px;
 }
 
-/* ── 들여쓰기 sub-list (· 최하위) ── */
 .indent-ul{
   list-style: none;
   margin: 8px 0 4px 0;
@@ -217,7 +210,7 @@ ol.sp-ol ul.sp-ul {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 15px;        /* ← 가장 작게 */
+  font-size: 15px;
   color: var(--text-muted);
   line-height: 1.8;
   font-weight: 400;
@@ -228,11 +221,10 @@ ol.sp-ol ul.sp-ul {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ccc;       /* ← 가장 연하게 */
+  background: #ccc;
   margin-top: 11px;
 }
 
-/* ── ➡️ 강조 라인 ── */
 .cta-line{
   font-size: 16px;
   font-weight: 700;
@@ -240,7 +232,6 @@ ol.sp-ol ul.sp-ul {
   margin-top: 10px;
 }
 
-/* ── 링크 ── */
 .link-row{
   display: flex;
   align-items: center;
@@ -255,7 +246,6 @@ ol.sp-ol ul.sp-ul {
 }
 .link-row a:hover{ opacity:.7 }
 
-/* ── 기사 카드 ── */
 .article-card{
   display: flex;
   border: 1px solid var(--border);
@@ -292,7 +282,6 @@ ol.sp-ol ul.sp-ul {
   line-height: 1.5;
 }
 
-/* ── 이미지 CTA ── */
 .img-cta{
   display: block;
   width: 100%;
@@ -303,23 +292,12 @@ ol.sp-ol ul.sp-ul {
 }
 .img-cta img{ width:100%; display:block; }
 
-/* ── 구분선 ── */
 .sp-divider{
   height: 1px;
   background: var(--border);
   margin: 40px 0;
 }
 
-/* ── 이모지 번호 ── */
-.emoji-num{
-  display: inline-flex;
-  align-items: center;
-  font-size: 28px;
-  flex-shrink: 0;
-  line-height: 1.4;
-}
-
-/* ── 프로세스 박스 ── */
 .process-box{
   background: #f9fafb;
   border: 1px solid var(--border);
@@ -336,9 +314,6 @@ ol.sp-ol ul.sp-ul {
   line-height: 1.8;
 }
 
-/* ── 근무조건 테이블 ── */
-.cond-table{ display:none }
-
 /* ── 영상 그리드 ── */
 .video-grid{
   display: grid;
@@ -346,27 +321,19 @@ ol.sp-ol ul.sp-ul {
   gap: 10px;
   margin: 20px 0;
   width: 100%;
-  box-sizing: border-box;
 }
 .video-wrap{
   border-radius: 10px;
   overflow: hidden;
   background: #000;
-  width: 100%;
   aspect-ratio: 9/16;
   min-width: 0;
-  position: relative;
 }
 .video-wrap iframe{
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  height: 180%; /* 검은 여백 크롭 */
-  transform: translate(-50%, -50%);
+  height: 100%;
   border: none;
   display: block;
-  pointer-events: auto;
 }
 
 /* ── floating CTA ── */
@@ -401,15 +368,11 @@ ol.sp-ol ul.sp-ul {
   .main{ padding:0 16px 80px }
   .article-card .ac-img{ width:80px }
   .content{ padding-top: 36px }
-
-  /* 모바일에서 깊은 들여쓰기 축소 */
   h3.sub-head{ padding-left: 24px }
   ul.sp-ul{ padding-left: 24px }
   ol.sp-ol{ padding-left: 24px }
   h4.subsub{ padding-left: 44px }
   h4.subsub + ul.sp-ul{ padding-left: 58px }
-
-  /* floating CTA 모바일 가득채우기 */
   .floating-cta{
     width: calc(100% - 32px);
     text-align: center;
@@ -425,24 +388,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="layout">
 
-<!-- ── 메인 ── -->
 <main class="main">
 <div class="content">
 
-  <!-- 로고 이미지 -->
   <img class="sp-img-sm" src="https://upload.cafenono.com/image/logo/20250427/074222_PYzZMaknLgzVLU2Pgd?q=90&s=1280x1" alt="Glovv 로고" style="width:160px;margin-bottom:24px;border-radius:0"/>
 
-  <!-- 페이지 타이틀 -->
   <h1 class="page-title">뷰티 인턴 채용공고</h1>
   <p class="sp-p" style="font-size:22px;color:var(--text);font-weight:600;margin-top:56px;text-align:center">스펙보다는 열정</p>
-
   <p class="sp-p" style="color:var(--text);font-size:17px;text-align:center;line-height:2;margin-top:36px">초고속 성장 중인<br/>뷰티 릴스 제작 플랫폼 글로브에서<br/><br/>인플루언서 시장을 혁신할<br/>핵심 인턴을 찾습니다.</p>
 
-  <!-- 히어로 이미지 -->
   <img src="https://upload.cafenono.com/image/slashpageHome/20260330/161649_T6zY5HkSqDeHD4CMWm?q=90&s=1280x1&t=outside&f=webp" alt="글로브 소개" style="width:100%;border-radius:12px;display:block;margin:16px 0"/>
   <img src="https://upload.cafenono.com/image/slashpageHome/20251027/193826_OtBtInlfRidBUnEjuT?q=90&s=1280x1&t=outside&f=webp" alt="글로브 브랜드" style="width:100%;border-radius:12px;display:block;margin:16px 0"/>
 
-  <!-- 실적 불릿 -->
   <ul class="sp-ul">
     <li>출시 1년 만에 주요 뷰티 대기업 포함 1,500개 이상 뷰티 브랜드 확보 (올영 입점 브랜드의 40% ↑)</li>
     <li>출시 3개월만에 일본 서비스 런칭 및 일본 인플루언서 풀 1,000명 이상 확보</li>
@@ -450,12 +407,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li>25년 시리즈A 30억 투자유치 완료, 26년 북미 진출 성공적으로 진행중</li>
   </ul>
 
-  <!-- 링크 -->
   <div class="link-row">👉 <a href="https://glovv.co.kr" target="_blank" rel="noopener">글로브 홈페이지</a></div>
   <div class="link-row">👉 <a href="https://featpaper.com/l/371baJ" target="_blank" rel="noopener">글로브 서비스 소개서</a></div>
   <div class="link-row">👉 <a href="https://glovv.co.kr/reference" target="_blank" rel="noopener">글로브 레퍼런스 모음</a></div>
 
-  <!-- 기사 카드 -->
   <a class="article-card" href="https://platum.kr/archives/268968" target="_blank" rel="noopener">
     <img class="ac-img" src="https://upload.cafenono.com/image/linkPreviewImage/20260318/121910_eHT3hD8pqsgaTFwPFp?q=90&s=1280x1&t=outside&f=webp" alt=""/>
     <div class="ac-body">
@@ -474,13 +429,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 1️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">1️⃣</span> 분야 : 뷰티 인턴</h2>
-
+  <h2 class="section-head" data-track="section_1"><span class="emoji-num">1️⃣</span> 분야 : 뷰티 인턴</h2>
   <h3 class="sub-head">1. 채용 인원</h3>
   <ul class="sp-ul">
     <li>4명 (채용 완료시 마감)</li>
   </ul>
-
   <h3 class="sub-head">2. 자격요건</h3>
   <ul class="sp-ul">
     <li>논리적으로 사고하고 커뮤니케이션 능력이 뛰어난 분</li>
@@ -488,21 +441,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li>책임감과 열정 있는 누구나</li>
     <li>경력 무관 🔥</li>
   </ul>
-
   <h3 class="sub-head">3. 업무 내용</h3>
-
   <h4 class="subsub">(1) 브랜드 커뮤니케이션</h4>
   <ul class="sp-ul">
     <li>신규 브랜드 합류 시, 글로브 사용법을 설명하는 온보딩을 진행합니다.</li>
     <li>브랜드가 겪고 있는 문제를 해결합니다.</li>
   </ul>
-
   <h4 class="subsub">(2) 콘텐츠 퀄리티 유지</h4>
   <ul class="sp-ul">
     <li>인플루언서가 제작한 영상 콘텐츠를 검수합니다.</li>
     <li>인플루언서들이 플랫폼 정책을 잘 준수하도록 관리합니다.</li>
   </ul>
-
   <h4 class="subsub">(3) 기타</h4>
   <ul class="sp-ul">
     <li>기타 회사 성장에 필요한 사무 업무를 보조합니다.</li>
@@ -511,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 2️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">2️⃣</span> 인재상</h2>
+  <h2 class="section-head" data-track="section_2"><span class="emoji-num">2️⃣</span> 인재상</h2>
   <ul class="sp-ul">
     <li>뷰티 업계에서 커리어 성장을 꿈꾸는 분</li>
     <li>고객이 전부라 믿는 팀에서 정말 훌륭한 제품을 만들어보고 싶으신 분</li>
@@ -521,8 +470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 3️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">3️⃣</span> 최고의 기회 : 뷰티/마케터/스타트업</h2>
-
+  <h2 class="section-head" data-track="section_3"><span class="emoji-num">3️⃣</span> 최고의 기회 : 뷰티/마케터/스타트업</h2>
   <ol class="sp-ol">
     <li>
       <div class="li-body">
@@ -557,8 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </li>
   </ol>
 
-  <!-- 이력서 제출 CTA 이미지 -->
-  <a class="img-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener">
+  <a class="img-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener" id="cta-btn-1">
     <img src="https://upload.cafenono.com/image/slashpageHome/20260226/200328_h8lTqAY85yBpHTGhMY?q=90&s=1920x1&t=outside&f=webp" alt="이력서 제출 배너" style="width:100%;border-radius:12px;display:block;margin:16px 0"/>
   </a>
 
@@ -571,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 4️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">4️⃣</span> 근무조건</h2>
+  <h2 class="section-head" data-track="section_4"><span class="emoji-num">4️⃣</span> 근무조건</h2>
   <ul class="sp-ul">
     <li>이태원역 1분 거리 사무실</li>
     <li>오전 9시~오후 6시 기본 근무</li>
@@ -588,7 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 5️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">5️⃣</span> 혜택</h2>
+  <h2 class="section-head" data-track="section_5"><span class="emoji-num">5️⃣</span> 혜택</h2>
   <ul class="sp-ul">
     <li>인턴십 1년을 완료한 경우</li>
   </ul>
@@ -609,7 +556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 6️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">6️⃣</span> 글로브 소개</h2>
+  <h2 class="section-head" data-track="section_6"><span class="emoji-num">6️⃣</span> 글로브 소개</h2>
   <ul class="sp-ul">
     <li>뷰티 브랜드와 인플루언서를 연결해 릴스를 제작해주는 플랫폼</li>
     <li>사실 상 국내 시장 독점, 압도적 국내 1위 뷰티 릴스 제작 플랫폼</li>
@@ -660,32 +607,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ol>
 
   <img src="https://upload.cafenono.com/image/slashpageHome/20250908/154215_4foylXJaeSOa2FJ7NC?q=90&s=1920x1&t=outside&f=webp" alt="성장 그래프" style="width:100%;border-radius:12px;display:block;margin:16px 0"/>
-
   <p class="sp-p" style="color:var(--text);font-weight:600;font-size:16px">말 그대로 로켓 성장</p>
   <p class="sp-p">글로브 출시 이후, 회사는 미친 속도로 성장 중</p>
 
   <div class="sp-divider"></div>
 
   <!-- 7️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">7️⃣</span> 뷰티 릴스 설명</h2>
+  <h2 class="section-head" data-track="section_7"><span class="emoji-num">7️⃣</span> 뷰티 릴스 설명</h2>
   <ul class="sp-ul">
     <li>화장품을 소개하는 인스타그램용 숏폼 영상</li>
     <li>마케팅 의존도가 높은 모든 뷰티 브랜드들은 현시점 ROAS(광고비 대비 매출)가 가장 높게 나오는 릴스 마케팅에 집중</li>
   </ul>
 
-  <!-- 영상 2열 그리드 (Google Drive) -->
+  <!-- 영상 2열 그리드 (YouTube Shorts) -->
   <div class="video-grid">
     <div class="video-wrap">
       <iframe
-        src="https://drive.google.com/file/d/195XHpjYjE5DQgdgOpftmQltMKUBFNrKk/preview"
-        allow="autoplay"
+        src="https://www.youtube.com/embed/k_NZSOVt6OA"
+        allow="autoplay; encrypted-media"
         allowfullscreen>
       </iframe>
     </div>
     <div class="video-wrap">
       <iframe
-        src="https://drive.google.com/file/d/1IDpOnvXT-wUOFX0KfS6YqmPD6greh0t3/preview"
-        allow="autoplay"
+        src="https://www.youtube.com/embed/7rlbtMDhgec"
+        allow="autoplay; encrypted-media"
         allowfullscreen>
       </iframe>
     </div>
@@ -711,8 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="sp-divider"></div>
 
   <!-- 8️⃣ -->
-  <h2 class="section-head"><span class="emoji-num">8️⃣</span> 함께 일하게 될 사람은 누구인가요?</h2>
-
+  <h2 class="section-head" data-track="section_8"><span class="emoji-num">8️⃣</span> 함께 일하게 될 사람은 누구인가요?</h2>
   <ol class="sp-ol">
     <li>
       <div class="li-body">
@@ -754,8 +699,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ol>
 
   <!-- 최하단 CTA -->
-  <a class="img-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener">
-    <img src="https://upload.cafenono.com/image/slashpageHome/20260226/200416_czJeXRwv7PGUhA1wcC?q=90&s=1920x1&t=outside&f=webp" alt="지원하기 배너" style="width:100%;display:block" style="width:100%;display:block;border:none" allow="autoplay" title="지원하기 배너"></iframe>
+  <a class="img-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener" id="cta-btn-2">
+    <img src="https://upload.cafenono.com/image/slashpageHome/20260226/200416_czJeXRwv7PGUhA1wcC?q=90&s=1920x1&t=outside&f=webp" alt="지원하기 배너" style="width:100%;display:block"/>
   </a>
 
   <div class="process-box">
@@ -764,4 +709,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>• 문의 : <a href="mailto:youjin@glovv.co.kr" style="color:inherit">youjin@glovv.co.kr</a></p>
   </div>
 
-  <div style="height:96px"></div><!-- floating CTA
+  <div style="height:96px"></div>
+
+</div>
+</main>
+</div>
+
+<!-- floating CTA -->
+<a class="floating-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener" id="cta-btn-float">1분만에 이력서 제출 →</a>
+
+<!-- =============================================
+     트래킹 스크립트
+     1. 버튼 클릭
+     2. 스크롤 깊이 (25/50/75/90%)
+     3. 섹션 체류 시간 (1️⃣~8️⃣ 각각)
+     ============================================= -->
+<script>
+(function() {
+
+  // ── 1. 버튼 클릭 트래킹 ──
+  var ctaBtns = document.querySelectorAll('#cta-btn-1, #cta-btn-2, #cta-btn-float');
+  ctaBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var label = btn.id === 'cta-btn-float' ? 'floating' : btn.id === 'cta-btn-1' ? 'middle' : 'bottom';
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'cta_click',
+        cta_position: label
+      });
+    });
+  });
+
+  // ── 2. 스크롤 깊이 트래킹 ──
+  var scrollMilestones = [25, 50, 75, 90];
+  var scrollFired = {};
+  window.addEventListener('scroll', function() {
+    var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+    scrollMilestones.forEach(function(milestone) {
+      if (!scrollFired[milestone] && scrolled >= milestone) {
+        scrollFired[milestone] = true;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'scroll_depth',
+          scroll_percent: milestone
+        });
+      }
+    });
+  }, { passive: true });
+
+  // ── 3. 섹션 체류 시간 트래킹 ──
+  var sectionTimers = {};
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var id = entry.target.getAttribute('data-track');
+      if (entry.isIntersecting) {
+        sectionTimers[id] = Date.now();
+      } else {
+        if (sectionTimers[id]) {
+          var elapsed = Math.round((Date.now() - sectionTimers[id]) / 1000);
+          if (elapsed >= 3) { // 3초 이상 체류한 경우만 전송
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'section_view',
+              section_id: id,
+              time_spent_sec: elapsed
+            });
+          }
+          delete sectionTimers[id];
+        }
+      }
+    });
+  }, { threshold: 0.5 }); // 섹션의 50% 이상 보일 때
+
+  document.querySelectorAll('[data-track]').forEach(function(el) {
+    observer.observe(el);
+  });
+
+})();
+</script>
+
+</body>
+</html>

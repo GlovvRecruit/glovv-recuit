@@ -720,9 +720,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- =============================================
      트래킹 스크립트
-     1. 버튼 클릭
-     2. 스크롤 깊이 (25/50/75/90%)
-     3. 섹션 체류 시간 (1️⃣~8️⃣ 각각)
+     1. 버튼 클릭 (GTM + Meta Pixel)
+     2. 스크롤 깊이 50% (GTM + Meta Pixel)
+     3. 섹션 체류 시간
      ============================================= -->
 <script>
 (function() {
@@ -732,11 +732,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ctaBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
       var label = btn.id === 'cta-btn-float' ? 'floating' : btn.id === 'cta-btn-1' ? 'middle' : 'bottom';
+
+      // GTM
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'cta_click',
         cta_position: label
       });
+
+      // Meta Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { cta_position: label });
+      }
     });
   });
 
@@ -748,11 +755,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     scrollMilestones.forEach(function(milestone) {
       if (!scrollFired[milestone] && scrolled >= milestone) {
         scrollFired[milestone] = true;
+
+        // GTM
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'scroll_depth',
           scroll_percent: milestone
         });
+
+        // Meta Pixel - 50% 이상만
+        if (milestone === 50 && typeof fbq !== 'undefined') {
+          fbq('trackCustom', 'DeepScroll', { scroll_percent: 50 });
+        }
       }
     });
   }, { passive: true });
@@ -767,7 +781,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } else {
         if (sectionTimers[id]) {
           var elapsed = Math.round((Date.now() - sectionTimers[id]) / 1000);
-          if (elapsed >= 3) { // 3초 이상 체류한 경우만 전송
+          if (elapsed >= 3) {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: 'section_view',
@@ -779,7 +793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       }
     });
-  }, { threshold: 0.5 }); // 섹션의 50% 이상 보일 때
+  }, { threshold: 0.5 });
 
   document.querySelectorAll('[data-track]').forEach(function(el) {
     observer.observe(el);

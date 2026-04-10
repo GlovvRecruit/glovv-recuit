@@ -7,7 +7,7 @@
 
 <!-- SEO -->
 <meta name="description" content="초고속 성장 중인 뷰티 릴스 제작 플랫폼 글로브에서 뷰티 인턴을 모집합니다. 스펙보다 열정! 뷰티 산업 인턴, 스타트업 인턴 지원 가능."/>
-<meta name="keywords" content="뷰티 산업 인턴, 글로브 인턴, 글로브 뷰티 인턴, 뷰티 인턴, 스타트업 인턴, 뷰티 릴스, 인플루언서 마케팅 인턴"/>
+<meta name="keywords" content="뷰티 산업 인턴, 글로브 인턴, 화장품 인턴, 화장품 브랜드 인턴, 코스메틱스, 글로브 뷰티 인턴, 뷰티 인턴, 스타트업 인턴, 뷰티 릴스, 인플루언서 마케팅 인턴"/>
 <meta name="robots" content="index, follow"/>
 
 <!-- OG (카카오톡/SNS 공유 시 표시) -->
@@ -874,12 +874,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 function shareKakao() {
+  // GTM 트래킹
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'cta_click',
+    cta_position: 'kakao_share'
+  });
+
+  // Meta Pixel 트래킹
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', { cta_position: 'kakao_share' });
+  }
+
   Kakao.Share.sendDefault({
     objectType: 'feed',
     content: {
       title: '글로브 뷰티 인턴 채용',
       description: '다시 보고 싶다면 저장해두세요!',
-      imageUrl: 'https://upload.cafenono.com/image/slashpageHome/20260226/200328_h8lTqAY85yBpHTGhMY?q=90&s=1920x1&t=outside&f=webp',
+      imageUrl: 'https://glovvrecruit.github.io/glovv-recuit/logo_glovv_profile.png',
       link: {
         mobileWebUrl: 'https://glovvrecruit.github.io/glovv-recuit/',
         webUrl: 'https://glovvrecruit.github.io/glovv-recuit/',

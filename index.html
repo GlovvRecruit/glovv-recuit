@@ -339,7 +339,7 @@ ol.sp-ol ul.sp-ul {
 /* ── floating CTA ── */
 .floating-cta{
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -512,7 +512,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="process-box">
     <p>• 채용 프로세스 : 위 링크로 이력서 제출 → 팀장과 면접 → 합격</p>
     <p>• 선착순 면접이며, 채용 완료시 마감되니 빠른 지원 유리</p>
-    <p>• 문의 : <a href="mailto:youjin@glovv.co.kr" style="color:inherit">youjin@glovv.co.kr</a></p>
+    <p>• 문의 : <a href="/cdn-cgi/l/email-protection#324b5d47585b5c72555e5d44441c515d1c5940" style="color:inherit"><span class="__cf_email__" data-cfemail="ff86908a959691bf9893908989d19c90d1948d">[email&#160;protected]</span></a></p>
   </div>
 
   <div class="sp-divider"></div>
@@ -706,7 +706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="process-box">
     <p>• 채용 프로세스 : 위 링크로 이력서 제출 → 팀장과 면접 → 합격</p>
     <p>• 선착순 면접이며, 채용 완료시 마감되니 빠른 지원 유리</p>
-    <p>• 문의 : <a href="mailto:youjin@glovv.co.kr" style="color:inherit">youjin@glovv.co.kr</a></p>
+    <p>• 문의 : <a href="/cdn-cgi/l/email-protection#1a63756f7073745a7d76756c6c347975347168" style="color:inherit"><span class="__cf_email__" data-cfemail="b0c9dfc5dad9def0d7dcdfc6c69ed3df9edbc2">[email&#160;protected]</span></a></p>
   </div>
 
   <div style="height:96px"></div>
@@ -724,7 +724,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      2. 스크롤 깊이 50% (GTM + Meta Pixel)
      3. 섹션 체류 시간
      ============================================= -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
 
   // ── 1. 버튼 클릭 트래킹 ──
@@ -784,22 +784,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           if (elapsed >= 3) {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-              event: 'section_view',
-              section_id: id,
-              time_spent_sec: elapsed
-            });
+            event: 'section_view',
+            section_id: id,
+            time_spent: elapsed
+          });
           }
           delete sectionTimers[id];
         }
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   document.querySelectorAll('[data-track]').forEach(function(el) {
     observer.observe(el);
   });
 
 })();
+</script>
+
+<!-- 카카오 SDK -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"></script>
+<script>
+  if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+    Kakao.init('0f2f5b34c1ba03e1efb0cad4cb3f2f6a');
+  }
+</script>
+
+<!-- 카카오 저장 버튼 (floating CTA 위 중앙 고정) -->
+<style>
+.kakao-save-btn {
+  position: fixed;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 40px;
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: background .15s, transform .15s, box-shadow .15s;
+}
+.kakao-save-btn:hover {
+  background: #333;
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.3);
+}
+@media(max-width:600px){
+  .kakao-save-btn {
+    width: calc(100% - 32px);
+    text-align: center;
+    padding: 15px 20px;
+    bottom: 88px;
+  }
+}
+</style>
+
+<button class="kakao-save-btn" onclick="shareKakao()">
+  🔖 저장하고 다시보기
+</button>
+
+<script>
+function shareKakao() {
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '글로브 뷰티 인턴 채용',
+      description: '다시 보고 싶다면 저장해두세요!',
+      imageUrl: 'https://upload.cafenono.com/image/slashpageHome/20260226/200328_h8lTqAY85yBpHTGhMY?q=90&s=1920x1&t=outside&f=webp',
+      link: {
+        mobileWebUrl: 'https://glovvrecruit.github.io/glovv-recuit/',
+        webUrl: 'https://glovvrecruit.github.io/glovv-recuit/',
+      },
+    },
+    buttons: [
+      {
+        title: '지원하기',
+        link: {
+          mobileWebUrl: 'https://glovvrecruit.github.io/glovv-recuit/',
+          webUrl: 'https://glovvrecruit.github.io/glovv-recuit/',
+        },
+      },
+    ],
+  });
+}
 </script>
 
 </body>

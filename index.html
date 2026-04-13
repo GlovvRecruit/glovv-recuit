@@ -1012,7 +1012,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- floating CTA -->
-<a class="floating-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener" id="cta-btn-float">1분만에 이력서 제출 →</a>
+<a class="floating-cta" href="https://tally.so/r/RGzKbK" target="_blank" rel="noopener" id="cta-btn-float">
+  <span class="cta-main-text">지금 바로 지원하기 (1분↓ 소요)</span>
+  <span class="cta-sub-text">선착순 마감 · 현재 <span id="applicant-count">37</span>명 지원 중</span>
+</a>
+
+<style>
+.floating-cta{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 12px 40px 10px;
+  white-space: nowrap;
+}
+.cta-main-text{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.cta-sub-text{
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  line-height: 1.3;
+}
+@media(max-width:600px){
+  .floating-cta{ padding: 12px 20px 10px; }
+  .cta-main-text{ font-size: 15px; }
+}
+</style>
+
+<script>
+(function(){
+  var BASE = 57;
+  var STORAGE_KEY = 'glovv_applicants';
+  var TIMESTAMP_KEY = 'glovv_applicants_ts';
+
+  function isActiveHour(h){
+    return (h >= 9 && h < 18) || (h >= 21 && h < 24);
+  }
+  function randomInc(h, count){
+    var over90 = count >= 90;
+    if(h >= 9 && h < 18) return over90 ? (Math.random() < 0.3 ? 1 : 0) : Math.floor(Math.random() * 3);
+    if(h >= 21 && h < 24) return over90 ? (Math.random() < 0.4 ? 1 : 0) : Math.floor(Math.random() * 4);
+    return 0;
+  }
+
+  function getCount(){
+    var stored = parseInt(localStorage.getItem(STORAGE_KEY)) || BASE;
+    var lastTs = parseInt(localStorage.getItem(TIMESTAMP_KEY)) || Date.now();
+    var now = Date.now();
+    var hoursPassed = Math.floor((now - lastTs) / (1000 * 60 * 60));
+
+    if(hoursPassed > 0){
+      var count = stored;
+      var d = new Date(lastTs);
+      for(var i = 0; i < hoursPassed; i++){
+        d.setHours(d.getHours() + 1);
+        var h = d.getHours();
+        if(isActiveHour(h)) count += randomInc(h, count);
+      }
+      localStorage.setItem(STORAGE_KEY, count);
+      localStorage.setItem(TIMESTAMP_KEY, now - ((now - lastTs) % (1000 * 60 * 60)));
+      return count;
+    }
+    return stored;
+  }
+
+  var count = getCount();
+  if(count < BASE) count = BASE;
+  document.getElementById('applicant-count').textContent = count;
+})();
+</script>
 
 <!-- =============================================
      트래킹 스크립트

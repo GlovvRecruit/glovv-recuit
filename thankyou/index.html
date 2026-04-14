@@ -118,13 +118,6 @@ h1 {
   transform: translateY(-2px);
 }
 
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
 @media(max-width: 480px) {
   h1 { font-size: 24px; }
   .btn,
@@ -151,10 +144,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="email">
     문의 : <a href="mailto:youjin@glovv.co.kr">youjin@glovv.co.kr</a>
   </p>
-  <div class="btn-group">
-    <a class="btn" href="https://glovvrecruit.github.io/intern/">채용공고 다시보기</a>
-    <button class="kakao-save-btn" onclick="shareKakao()">🔖 저장하고 다시보기</button>
-  </div>
+  <button class="kakao-save-btn" style="margin-top:24px" onclick="shareKakao()">🔖 채용공고 저장하고 다시보기</button>
+
 </div>
 
 <!-- 카카오 SDK -->
